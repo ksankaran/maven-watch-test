@@ -5,19 +5,23 @@ module.exports = function(grunt) {
 	// configuration
 	grunt.initConfig({
 		shell: {
-	        	options: {
-	        		stderr: false
-	        	},
-	        	target: {
-	        		command: 'ls'
-	        	},
-						mvnbuild: {
-							// build shell command
-							command: function(projectDir, className) {
-									var format = require("string-template");
-									return format("cd {0} && mvn clean -f {1} -Dtest={2} test", [projectDir, projectDir + '/pom.xml', className]);
-							}
-						}
+    	options: {
+    		stderr: false
+    	},
+    	target: {
+    		command: 'ls'
+    	},
+			mvnbuild: {
+				// build shell command
+				command: function(projectDir, className) {
+					var format = require("string-template");
+					return format("cd {0} && mvn clean -f {1} -Dtest={2} test", [
+						projectDir,
+						projectDir + '/pom.xml',
+						className
+					]);
+				}
+			}
 	  }
 	});
 
